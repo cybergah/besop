@@ -12,6 +12,9 @@ Amaç: silinen dosyanın kurtarma yazılımlarıyla geri getirilememesi.
 Android · Windows · macOS · Linux
 Kurmancî · کوردیی ناوەندی · العربية · Türkçe · English
 
+[![Build](https://github.com/cybergah/besop/actions/workflows/release.yml/badge.svg)](https://github.com/cybergah/besop/actions/workflows/release.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 </div>
 
 <p align="center"><a href="README.en.md"><b>🇬🇧 Read in English</b></a></p>
