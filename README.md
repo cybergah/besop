@@ -14,6 +14,8 @@ Kurmancî · کوردیی ناوەندی · العربية · Türkçe · Englis
 
 </div>
 
+<p align="center"><a href="README.en.md"><b>🇬🇧 Read in English</b></a></p>
+
 ---
 
 ## Neden
