@@ -52,8 +52,11 @@ jobs:
       - name: Adlandır
         run: |
           mkdir -p out
-          cp app/build/outputs/apk/release/app-release.apk \
-             "out/Besop-Android-${GITHUB_REF_NAME#v}.apk"
+          # Without a release keystore Gradle names the file app-release-unsigned.apk.
+          SRC=$(ls app/build/outputs/apk/release/*.apk | head -n1)
+          case "$SRC" in *unsigned*) SUF="-unsigned" ;; *) SUF="" ;; esac
+          cp "$SRC" "out/Besop-Android-${GITHUB_REF_NAME#v}$SUF.apk"
+          ls -la out/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -133,8 +136,9 @@ jobs:
       - name: Dosyaları topla
         run: |
           mkdir -p release
+          # Unsigned APKs cannot be installed, so they are never published.
           find artifacts -type f \( -name '*.apk' -o -name '*.msi' -o -name '*.zip' -o -name '*.dmg' \) \
-            -exec cp {} release/ \;
+            ! -name '*-unsigned.apk' -exec cp {} release/ \;
           ls -la release/
 
       - uses: softprops/action-gh-release@v2
